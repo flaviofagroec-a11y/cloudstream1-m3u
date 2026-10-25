@@ -67,6 +67,7 @@ subprojects {
         val implementation by configurations
         cloudstream("com.lagradost:cloudstream3:pre-release")
         implementation(kotlin("stdlib"))
+        implementation("com.github.Blatzar:NiceHttp:0.4.11")
         implementation("com.google.android.material:material:1.12.0")
     }
 }
