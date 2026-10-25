@@ -1,0 +1,8 @@
+{
+  "name": "M3U Channels",
+  "description": "Extensión para cargar una lista M3U configurada localmente",
+  "manifestVersion": 1,
+  "pluginLists": [
+    "https://raw.githubusercontent.com/flaviofagroec-a11y/cloudstream1-m3u/builds/plugins.json"
+  ]
+}
