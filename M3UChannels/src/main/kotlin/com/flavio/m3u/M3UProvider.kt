@@ -68,7 +68,7 @@ class M3UProvider(private val appContext: Context) : MainAPI() {
     }
 
     private fun attribute(line: String, key: String): String? {
-        val pattern = Regex("${'$'}{Regex.escape(key)}=\\"([^\\"]*)\\"")
+        val pattern = Regex(Regex.escape(key) + "=\"([^\"]*)\"")
         return pattern.find(line)?.groupValues?.getOrNull(1)
     }
 
