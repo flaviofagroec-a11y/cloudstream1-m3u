@@ -1,0 +1,48 @@
+name: Build CloudStream plugin
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+
+      - name: Build plugin and index
+        run: gradle --no-daemon make makePluginsJson
+
+      - name: Prepare published files
+        run: |
+          mkdir -p publish
+          find . -type f -name '*.cs3' -not -path './publish/*' -exec cp {} publish/ \;
+          test -f build/plugins.json
+          cp build/plugins.json publish/plugins.json
+
+      - name: Publish to builds branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: builds
+          publish_dir: publish
+          force_orphan: true
