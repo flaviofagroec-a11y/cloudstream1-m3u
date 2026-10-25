@@ -1,0 +1,21 @@
+[
+    {
+        "fileHash": "sha256-d59cf7bb382d72f081b25ab99880d9871131a6fbd0113c0da1833acb5aad9178",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/flaviofagroec-a11y/cloudstream1-m3u",
+        "fileSize": 14025,
+        "status": 3,
+        "language": "es",
+        "authors": [
+            "Flavio"
+        ],
+        "tvTypes": [
+            "Live"
+        ],
+        "version": 1,
+        "internalName": "M3UChannels",
+        "description": "Canales desde una lista M3U configurada en la app",
+        "url": "https://raw.githubusercontent.com/flaviofagroec-a11y/cloudstream1-m3u/builds/M3UChannels.cs3",
+        "name": "M3UChannels"
+    }
+]
